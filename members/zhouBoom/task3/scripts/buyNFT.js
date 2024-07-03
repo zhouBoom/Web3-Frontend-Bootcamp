@@ -1,11 +1,13 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-  const [buyer] = await ethers.getSigners();
-  console.log("Using account:", buyer.address);
+  const signers = await ethers.getSigners();
+  console.log(signers[1])
+  // const [buyer] = await ethers.getSigners();
+  console.log("Using account:", signers[1].address);
 
   const nftMarketAddress = "0xb5C48287F6dd8131A855Ec04e4e99d75c62344A5"; // 更新为新的 NFTMarket 合约地址
-  const tokenId = 2; // 要购买的 NFT 的 ID
+  const tokenId = 3; // 要购买的 NFT 的 ID
   const erc20TokenAddress = "0x0C691c5824eA0bD8214F1C8eA0826850238A8a4b"; // 更新为新的 MyERC20 合约地址
   const price = ethers.parseUnits("1", 18); // NFT 的价格
 
