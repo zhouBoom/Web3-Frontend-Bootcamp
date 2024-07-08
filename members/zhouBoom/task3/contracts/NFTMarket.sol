@@ -54,7 +54,7 @@ contract NFTMarket is Ownable {
     function purchaseItem(uint256 itemId) public {
         MarketItem storage item = marketItems[itemId];
         require(item.price > 0, "Item not listed");
-
+        // console.log("Attempting to transfer from:", msg.sender, "to:", item.seller, "amount:", item.price);
         // 转移支付代币
         paymentToken.transferFrom(msg.sender, item.seller, item.price);
         // 转移 NFT 所有权
